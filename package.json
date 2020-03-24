@@ -42,7 +42,7 @@
     "test": "mocha test/**/*.test.coffee",
     "publish:npm": "npm publish --registry='https://registry.npmjs.org'",
     "publish:github": "npm publish --registry='https://npm.pkg.github.com/'",
-    "deploy": "npm run publish:npm && npm run publish:github",
+    "deploy": "npm version patch && npm run publish:npm && npm run publish:github",
     "start": "npm run watch"
   }
 }
