@@ -50,7 +50,7 @@ module.exports = fibrous (argv) ->
       remoteTarball = npm.sync.fetch dist.tarball, auth: from.auth
 
       try
-        res = npm.sync.publish "#{to.url}/#{moduleName}", auth: to.auth, metadata: newMetadata, access: 'public', body: remoteTarball
+        res = npm.sync.publish "#{to.url}", auth: to.auth, metadata: newMetadata, access: 'public', body: remoteTarball
         console.log "#{moduleName}@#{semver} cloned"
       catch e
         remoteTarball.connection.end() # abort
