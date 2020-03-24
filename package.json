@@ -36,11 +36,13 @@
   },
   "scripts": {
     "compile": "coffee --bare --compile --output lib/ src/",
+    "watch": "coffee --watch --bare --compile --output lib/ src/",
     "prepublish": "npm run compile",
     "pretest": "npm run compile",
     "test": "mocha test/**/*.test.coffee",
     "publish:npm": "npm publish --registry='https://registry.npmjs.org'",
     "publish:github": "npm publish --registry='https://npm.pkg.github.com/'",
-    "deploy": "npm run publish:npm && npm run publish:github"
+    "deploy": "npm run publish:npm && npm run publish:github",
+    "start": "npm run watch"
   }
 }
