@@ -34,17 +34,17 @@ module.exports = fibrous (argv) ->
   unless from.url and (from.auth.token or (from.auth.username and from.auth.password)) and
          to.url and (to.auth.token or (to.auth.username and to.auth.password)) and
          moduleNames.length
-    msgDocs 'See documentation here: https://github.com/dperuo/npm-carbon/blob/master/README.md#usage'
+    msgDocs '📝  See documentation here: https://github.com/dperuo/npm-carbon/blob/master/README.md#usage'
     return
 
   npm = new RegClient()
 
   for moduleName in argv._
-    msgInfo "Getting version info from #{from.url}/#{moduleName}"
+    msgInfo "📡  Getting version info from #{from.url}/#{moduleName}"
     fromVersions = npm.sync.get("#{from.url}/#{moduleName}", auth: from.auth, timeout: 3000).versions
     try
       newModuleName = if to.prefix then "#{to.prefix}/#{moduleName}" else "#{moduleName}"
-      msgInfo "Getting version info from #{from.url}/#{newModuleName}"
+      msgInfo "📡  Getting version info from #{from.url}/#{newModuleName}"
       toVersions = npm.sync.get("#{to.url}/#{newModuleName}", auth: to.auth, timeout: 3000).versions
     catch e
       throw e
@@ -54,7 +54,7 @@ module.exports = fibrous (argv) ->
     for semver, oldMetadata of fromVersions
 
       unless semver in versionsToSync
-        msgOk "#{moduleName}@#{semver} already exists on destination"
+        msgOk "✅  #{moduleName}@#{semver} already exists on destination"
         continue
 
       {dist} = oldMetadata
@@ -66,11 +66,10 @@ module.exports = fibrous (argv) ->
       remoteTarball = npm.sync.fetch dist.tarball, auth: from.auth
 
       try
-        msgInfo "Publishing package to #{to.url}"
+        msgInfo "📦  Publishing package to #{to.url}"
         res = npm.sync.publish "#{to.url}", auth: to.auth, metadata: newMetadata, access: 'public', body: remoteTarball
-        msgOk "#{moduleName}@#{semver} cloned"
+        msgOk "✅  #{moduleName}@#{semver} cloned"
       catch e
         remoteTarball.connection.end() # abort
         throw e unless e.code is 'EPUBLISHCONFLICT'
-        msgWarn "#{moduleName}@#{semver} already exists on the destination, skipping."
-
+        msgWarn "⏩  #{moduleName}@#{semver} already exists on the destination, skipping."
