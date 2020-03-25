@@ -1,5 +1,5 @@
-/node_modules
-/npm-debug.log
+!bin/
 /.DS_Store
 /lib
-!bin/
+/node_modules
+/npm-debug.log
