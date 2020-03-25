@@ -8,6 +8,7 @@ module.exports = fibrous (argv) ->
 
   [to, from] = for dir in ['to', 'from']
     url: argv[dir]
+    prefix: argv["#{dir}-prefix"]
     auth:
       token: argv["#{dir}-token"]
       username: argv["#{dir}-username"]
