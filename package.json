@@ -17,6 +17,7 @@
   "homepage": "https://github.com/dperuo/npm-carbon",
   "bugs": "https://github.com/dperuo/npm-carbon/issues",
   "dependencies": {
+    "colors": "^1.4.0",
     "fibers": "^4.0.2",
     "fibrous": "^0.4.0",
     "lodash": "^4.17.15",
