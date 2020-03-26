@@ -52,11 +52,12 @@ module.exports = fibrous (argv) ->
   npm = new RegClient()
 
   for moduleName in argv._
-    msgInfo "Getting version info from #{from.url}/#{moduleName}", "📡"
-    fromVersions = npm.sync.get("#{from.url}/#{moduleName}", auth: from.auth, timeout: 3000).versions
+    oldModuleName = if from.prefix then "#{from.prefix}/#{moduleName}" else "#{moduleName}"
+    msgInfo "Getting version info for #{oldModuleName}...", "📡"
+    fromVersions = npm.sync.get("#{from.url}/#{oldModuleName}", auth: from.auth, timeout: 3000).versions
     try
       newModuleName = if to.prefix then "#{to.prefix}/#{moduleName}" else "#{moduleName}"
-      msgInfo "Getting version info from #{from.url}/#{newModuleName}", "📡"
+      msgInfo "Getting version info for #{newModuleName}...", "📡"
       toVersions = npm.sync.get("#{to.url}/#{newModuleName}", auth: to.auth, timeout: 3000).versions
     catch e
       throw e
