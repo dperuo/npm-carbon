@@ -19,9 +19,12 @@ npx @dperuo/npm-carbon <OPTIONS>
 
 
 ## Usage
-`@dperuo/npm-carbon` accepts auth tokens and username/password/email for authentiation.
 
-### Using Auth Tokens
+:dart: **NOTE: You can mix-and-match command options as needed.**
+
+
+### Authenticate Using Auth Tokens
+
 ```sh
 npx @dperuo/npm-carbon \
   --from ${FROM_URL} \
@@ -31,7 +34,8 @@ npx @dperuo/npm-carbon \
   packageA [packageB...]
 ```
 
-### Using Username/Password/Email
+### Authenticate Using Username, Password, and Email
+
 ```sh
 npx @dperuo/npm-carbon \
   --from ${FROM_URL} \
@@ -45,7 +49,17 @@ npx @dperuo/npm-carbon \
   packageA [packageB...]
 ```
 
-:dart: **NOTE: You can mix-and-match auth tokens and username/password/email as needed.**
+### Modify Package Prefix
+Modify the package prefix using the `--from-prefix` and `--to-prefix` flags.
+
+```sh
+npx @dperuo/npm-carbon \
+  --from-prefix ${FROM_PREFIX} \
+  --to-prefix ${TO_PREFIX} \
+  packageA [packageB...]
+```
+
+:warning: **WARNING: List packages without their prefix when using the prefix flags. Example: `@foo/packageA` becomes just `packageA`.**
 
 
 ## Author
