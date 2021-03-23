@@ -1,8 +1,8 @@
-[![Version](https://img.shields.io/npm/v/@dperuo/npm-carbon.svg?style=for-the-badge)](https://www.npmjs.com/package/@dperuo/npm-carbon)
-[![Documentation](https://img.shields.io/badge/documentation-yes-brightgreen.svg?style=for-the-badge)](https://github.com/dperuo/npm-carbon/blob/master/README.md)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://github.com/dperuo/npm-carbon/blob/master/LICENSE)
+![deprecated](assets/deprecated.svg)
 
+# Please use [@appsweet-co/npm-carbon](https://github.com/Appsweet-co/npm-carbon)
 
+<!--
 # Welcome to @dperuo/npm-carbon 👋
 
 _Forked from [goodeggs/npm-copy](https://github.com/goodeggs/npm-copy)._
@@ -120,3 +120,4 @@ This project is [MIT](https://github.com/dperuo/npm-carbon/blob/master/LICENSE) 
 
 ***
 _This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
+-->

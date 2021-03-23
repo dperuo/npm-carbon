@@ -1,7 +1,7 @@
 {
   "name": "@dperuo/npm-carbon",
   "version": "1.1.0",
-  "description": "Forked from https://github.com/goodeggs/npm-copy",
+  "description": "DEPRECATED - Please use https://github.com/Appsweet-co/npm-carbon",
   "author": "Derek Peruo <derek@derekperuo.net>",
   "license": "MIT",
   "keywords": [
